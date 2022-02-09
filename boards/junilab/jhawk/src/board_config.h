@@ -70,27 +70,18 @@
 
 /* Configuration ************************************************************************************/
 
-#define BOARD_HAS_LTC4417
-
-#if defined(BOARD_HAS_LTC4417)
-#  define BOARD_HAS_LTC44XX_VALIDS      2 // No LTC or N Bricks
-#  define BOARD_HAS_USB_VALID           1 // LTC Has No USB valid
-#  define BOARD_HAS_NBAT_V              2 // Only one Vbat to ADC
-#  define BOARD_HAS_NBAT_I              2 // No Ibat ADC
-#else
 #  define BOARD_HAS_LTC44XX_VALIDS      0 // No LTC or N Bricks
 #  define BOARD_HAS_USB_VALID           0 // LTC Has No USB valid
 #  define BOARD_HAS_NBAT_V              1 // Only one Vbat to ADC
 #  define BOARD_HAS_NBAT_I              0 // No Ibat ADC
-#endif
 
 /* PX4FMU GPIOs ***********************************************************************************/
 
 /* LEDs are driven with push open drain to support Anode to 5V or 3.3V */
 
-#define GPIO_nLED_RED        /* PB1 */  (GPIO_OUTPUT|GPIO_OPENDRAIN|GPIO_SPEED_50MHz|GPIO_OUTPUT_SET|GPIO_PORTB|GPIO_PIN1)
-#define GPIO_nLED_GREEN      /* PC6 */  (GPIO_OUTPUT|GPIO_OPENDRAIN|GPIO_SPEED_50MHz|GPIO_OUTPUT_SET|GPIO_PORTC|GPIO_PIN6)
-#define GPIO_nLED_BLUE       /* PC7 */  (GPIO_OUTPUT|GPIO_OPENDRAIN|GPIO_SPEED_50MHz|GPIO_OUTPUT_SET|GPIO_PORTC|GPIO_PIN7)
+#define GPIO_nLED_RED        /* PB1 */  (GPIO_OUTPUT|GPIO_SPEED_50MHz|GPIO_OUTPUT_SET|GPIO_PORTB|GPIO_PIN1)
+#define GPIO_nLED_GREEN      /* PC6 */  (GPIO_OUTPUT|GPIO_SPEED_50MHz|GPIO_OUTPUT_SET|GPIO_PORTC|GPIO_PIN6)
+#define GPIO_nLED_BLUE       /* PC7 */  (GPIO_OUTPUT|GPIO_SPEED_50MHz|GPIO_OUTPUT_SET|GPIO_PORTC|GPIO_PIN7)
 
 #define BOARD_HAS_CONTROL_STATUS_LEDS      1
 #define BOARD_OVERLOAD_LED     LED_RED
@@ -215,7 +206,7 @@
 
 /* PWM
  */
-#define DIRECT_PWM_OUTPUT_CHANNELS  11
+#define DIRECT_PWM_OUTPUT_CHANNELS  8
 
 #define BOARD_HAS_LED_PWM              1
 #define BOARD_LED_PWM_DRIVE_ACTIVE_LOW 1
@@ -282,7 +273,7 @@
 
 /* RC Serial port */
 
-#define RC_SERIAL_PORT                     "/dev/ttyS4"
+#define RC_SERIAL_PORT                     "/dev/ttyS3"
 #define RC_SERIAL_SINGLEWIRE
 #define BOARD_SUPPORTS_RC_SERIAL_PORT_OUTPUT
 
@@ -304,8 +295,8 @@
  * and provide the the non _INIT one for the driver to make a run time
  * decision to use it.
  */
-#define GPIO_nSAFETY_SWITCH_LED_OUT_INIT   /* PE12 */ (GPIO_INPUT|GPIO_FLOAT|GPIO_PORTE|GPIO_PIN12)
-#define GPIO_nSAFETY_SWITCH_LED_OUT        /* PE12 */ (GPIO_OUTPUT|GPIO_PUSHPULL|GPIO_SPEED_2MHz|GPIO_OUTPUT_SET|GPIO_PORTE|GPIO_PIN12)
+#define GPIO_nSAFETY_SWITCH_LED_OUT_INIT   /* PE12 */ (GPIO_INPUT|GPIO_FLOAT|GPIO_PORTE|GPIO_PIN15)
+#define GPIO_nSAFETY_SWITCH_LED_OUT        /* PE12 */ (GPIO_OUTPUT|GPIO_PUSHPULL|GPIO_SPEED_2MHz|GPIO_OUTPUT_SET|GPIO_PORTE|GPIO_PIN15)
 
 /* Enable the FMU to control it if there is no px4io fixme:This should be BOARD_SAFETY_LED(__ontrue) */
 #define GPIO_LED_SAFETY GPIO_nSAFETY_SWITCH_LED_OUT
@@ -433,6 +424,7 @@
 
 #define BOARD_NUM_IO_TIMERS 5
 
+#define BOARD_DSHOT_MOTOR_ASSIGNMENT {3, 2, 1, 0, 4, 5, 6, 7};
 
 __BEGIN_DECLS
 

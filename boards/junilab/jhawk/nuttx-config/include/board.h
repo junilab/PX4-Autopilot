@@ -1,5 +1,5 @@
 /************************************************************************************
- * nuttx-configs/px4_fmu-v5/include/board.h
+ * nuttx-configs/junilab/jhawk/include/board.h
  *
  *   Copyright (C) 2016-2018 Gregory Nutt. All rights reserved.
  *   Authors: David Sidrane <david_s5@nscdg.com>
@@ -54,7 +54,7 @@
  ************************************************************************************/
 
 /* Clocking *************************************************************************/
-/* The px4_fmu-v5  board provides the following clock sources:
+/* The junilab_jhwak  board provides the following clock sources:
  *
  *   X301: 16 MHz crystal for HSE
  *
@@ -258,7 +258,7 @@
 #define BOARD_FLASH_WAITSTATES 7
 
 /* LED definitions ******************************************************************/
-/* The px4_fmu-v5 board has numerous LEDs but only three, LED_GREEN a Green LED, LED_BLUE
+/* The junilab_jhawk board has numerous LEDs but only three, LED_GREEN a Green LED, LED_BLUE
  * a Blue LED and LED_RED a Red LED, that can be controlled by software.
  *
  * If CONFIG_ARCH_LEDS is not defined, then the user can control the LEDs in any way.
@@ -330,7 +330,7 @@
 #define GPIO_USART6_RTS  GPIO_USART6_RTS_2  /* PG8  */
 #define GPIO_USART6_CTS  GPIO_USART6_CTS_2  /* PG15 */
 
-#define GPIO_UART7_RX    GPIO_UART7_RX_2    /* PF6 */
+#define GPIO_UART7_RX    GPIO_UART7_RX_1    /* PE7 */
 #define GPIO_UART7_TX    GPIO_UART7_TX_1    /* PE8 */
 
 /* USART8: has no remap
@@ -362,7 +362,7 @@
 
 #define GPIO_SPI1_MISO   GPIO_SPI1_MISO_1   /* PA6 */
 #define GPIO_SPI1_MOSI   GPIO_SPI1_MOSI_3   /* PD7 */
-#define GPIO_SPI1_SCK    GPIO_SPI1_SCK_3    /* PG11 */
+#define GPIO_SPI1_SCK    GPIO_SPI1_SCK_1    /* PA5 */
 
 #define GPIO_SPI2_MISO   GPIO_SPI2_MISO_3   /* PI2 */
 #define GPIO_SPI2_MOSI   GPIO_SPI2_MOSI_3   /* PI3 */
@@ -406,11 +406,11 @@
 #define GPIO_I2C2_SCL_GPIO                  (GPIO_OUTPUT | GPIO_OPENDRAIN |GPIO_SPEED_50MHz | GPIO_OUTPUT_SET | GPIO_PORTF | GPIO_PIN1)
 #define GPIO_I2C2_SDA_GPIO                  (GPIO_OUTPUT | GPIO_OPENDRAIN |GPIO_SPEED_50MHz | GPIO_OUTPUT_SET | GPIO_PORTF | GPIO_PIN0)
 
-#define GPIO_I2C3_SCL GPIO_I2C3_SCL_2       /* PH7 */
-#define GPIO_I2C3_SDA GPIO_I2C3_SDA_2       /* PH8 */
+#define GPIO_I2C3_SCL GPIO_I2C3_SCL_1       /* PA8 */
+#define GPIO_I2C3_SDA GPIO_I2C3_SDA_1       /* PC9 */
 
-#define GPIO_I2C3_SCL_GPIO                  (GPIO_OUTPUT | GPIO_OPENDRAIN |GPIO_SPEED_50MHz | GPIO_OUTPUT_SET | GPIO_PORTH | GPIO_PIN7)
-#define GPIO_I2C3_SDA_GPIO                  (GPIO_OUTPUT | GPIO_OPENDRAIN |GPIO_SPEED_50MHz | GPIO_OUTPUT_SET | GPIO_PORTH | GPIO_PIN8)
+#define GPIO_I2C3_SCL_GPIO                  (GPIO_OUTPUT | GPIO_OPENDRAIN |GPIO_SPEED_50MHz | GPIO_OUTPUT_SET | GPIO_PORTA | GPIO_PIN8)
+#define GPIO_I2C3_SDA_GPIO                  (GPIO_OUTPUT | GPIO_OPENDRAIN |GPIO_SPEED_50MHz | GPIO_OUTPUT_SET | GPIO_PORTC | GPIO_PIN9)
 
 #define GPIO_I2C4_SCL GPIO_I2C4_SCL_2       /* PF14 */
 #define GPIO_I2C4_SDA GPIO_I2C4_SDA_2       /* PF15 */
