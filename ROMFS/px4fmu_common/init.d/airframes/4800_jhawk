@@ -1,0 +1,25 @@
+#!/bin/sh
+#
+# @name Jhawk1.0
+#
+# @type Quadrotor x
+# @class Copter
+
+
+. ${R}etc/init.d/rc.mc_defaults
+
+set MIXER quad_x_cw
+
+param set-default PWM_MAIN_DISARM 0
+param set-default PWM_MAIN_MIN 10
+param set-default PWM_MAIN_MAX 255
+
+# Run the motors at 328.125 kHz (recommended)
+param set-default PWM_MAIN_RATE 3921
+
+param set-default SENS_FLOW_MINRNG 0.05
+
+set PWM_MAIN_DISARM none
+set PWM_MAIN_MAX none
+set PWM_MAIN_MIN none
+
